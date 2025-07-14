@@ -80,4 +80,3 @@ def main():
     with open(f"{username}_comments.json", "w", encoding="utf-8") as f:
         json.dump(scraped_info, f, indent=2, ensure_ascii=False)
         print(f"Saved {len(scraped_info)} comments for {username}")
-
