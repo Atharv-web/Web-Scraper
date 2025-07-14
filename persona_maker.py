@@ -21,7 +21,7 @@ def build_prompt(data, max_items=25):
     for i, item in enumerate(data[:max_items], 1):
         prompt += f"\n{i}. ID: {item.get('id', 'N/A')}\n"
         prompt += f"   Type: {item.get('type', 'N/A')}\n"
-        prompt += f"   Text: {item.get('text', '')[:500]}...\n"
+        prompt += f"   Text: {item.get('text', '')}...\n"
     return prompt
 
 # --- Loop Through All *_comments.json Files ---
