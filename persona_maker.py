@@ -5,11 +5,11 @@ from google import genai
 from dotenv import load_dotenv
 load_dotenv()
 
-# --- CONFIGURATION ---
+# Configure API and initialize the LLM.
 API_KEY = os.getenv('GEMINI_API_KEY')
 llm = genai.Client(api_key=API_KEY)
 
-# --- Build Prompt Function ---
+# Build Prompt Function
 def build_prompt(data, max_items=25):
     prompt = (
         "You are an expert behavioral analyst.\n"
@@ -24,7 +24,7 @@ def build_prompt(data, max_items=25):
         prompt += f"   Text: {item.get('text', '')}...\n"
     return prompt
 
-# --- Loop Through All *_comments.json Files ---
+# Loop through all scraped-comments json files
 json_files = glob.glob("*_comments.json")
 
 if not json_files:

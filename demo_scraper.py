@@ -1,7 +1,6 @@
 import requests
 import re
 import json
-from urllib.parse import urljoin
 
 def extract_username(url: str) -> str:
     match = re.search(r"/[uU]ser/([A-Za-z0-9_-]+)/?|/[uU]/([A-Za-z0-9_-]+)/?", url)
@@ -9,7 +8,7 @@ def extract_username(url: str) -> str:
         return match.group(1) or match.group(2)
     return None
 
-def scrape_shit(username, limit=25):
+def scrape_stuff(username, limit=25):
     headers = {
         "User-Agent": (
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -62,7 +61,7 @@ url3 = "https://www.reddit.com/user/No-Spinach-9101/"
 def example_run():
     for url in [url1,url2,url3]:
         username = extract_username(url)
-        scraped_data = scrape_shit(username)
+        scraped_data = scrape_stuff(username)
 
         with open(f"{username}_comments.json", "w", encoding="utf-8") as f:
             json.dump(scraped_data, f, indent=2, ensure_ascii=False)
@@ -76,7 +75,7 @@ def main():
     print("Provide a reddit user url below:")
     url = input()
     username = extract_username(url)
-    scraped_info = scrape_shit(username)
+    scraped_info = scrape_stuff(username)
     with open(f"{username}_comments.json", "w", encoding="utf-8") as f:
         json.dump(scraped_info, f, indent=2, ensure_ascii=False)
         print(f"Saved {len(scraped_info)} comments for {username}")
