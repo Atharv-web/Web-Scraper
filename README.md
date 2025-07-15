@@ -33,11 +33,10 @@ This project scrapes a Reddit user's comments and uses a LLM to generate a user 
 
 4. **Generate the persona:**
 
-   - Once the scraper has finished, run the `persona_maker.py` script to generate the persona.
+   Once the scraper has finished, run the `persona_maker.py` script to generate the persona.
 
      ```bash
      python persona_maker.py
      ```
 
-   - The persona will be saved in a text file named `persona_<username>.txt`.
-
+   The persona will be saved in a text file named `persona_<username>.txt`.
